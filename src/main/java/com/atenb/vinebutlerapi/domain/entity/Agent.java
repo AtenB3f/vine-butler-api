@@ -21,7 +21,7 @@ public class Agent {
     private Long id;
 
     // 공인중개 이름
-    @Column(length = 255)
+    @Column(length = 255, nullable = false)
     private String name;
 
     // 공인중개사 핸드폰 번호

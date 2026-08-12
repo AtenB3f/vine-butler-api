@@ -3,17 +3,19 @@ package com.atenb.vinebutlerapi.application.service;
 import com.atenb.vinebutlerapi.domain.entity.PropertyTransaction;
 import com.atenb.vinebutlerapi.domain.repository.PropertyTransactionRepository;
 import com.atenb.vinebutlerapi.domain.service.PropertyTransactionService;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PropertyTransactionImpl implements PropertyTransactionService {
+@Transactional
+public class PropertyTransactionServiceImpl implements PropertyTransactionService {
 
     private final PropertyTransactionRepository propertyTransactionRepository;
 
-    PropertyTransactionImpl(PropertyTransactionRepository propertyTransactionRepository) {
+    public PropertyTransactionServiceImpl(PropertyTransactionRepository propertyTransactionRepository) {
         this.propertyTransactionRepository = propertyTransactionRepository;
     }
 
@@ -33,7 +35,12 @@ public class PropertyTransactionImpl implements PropertyTransactionService {
                 propertyTransaction.getProperty().getId() == null) {
             throw new IllegalArgumentException("Property is required");
         }
-
+        if (propertyTransaction.getTransactionType() == null) {
+            throw new IllegalArgumentException("TransactionType is required");
+        }
+        if (propertyTransaction.getTransactionStatus() == null) {
+            throw new IllegalArgumentException("TransactionStatus is required");
+        }
         Optional<PropertyTransaction> existingTransaction =
                 propertyTransactionRepository.findByPropertyId(
                         propertyTransaction.getProperty().getId()

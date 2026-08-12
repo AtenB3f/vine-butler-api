@@ -81,7 +81,6 @@ public class Property {
     @Column(length = 2048)
     private String blogPostUrl;
 
-
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -89,7 +88,6 @@ public class Property {
     @UpdateTimestamp
     @Column(nullable = false)
     private LocalDateTime updatedAt;
-
 
     @OneToMany(mappedBy = "property")
     private List<PropertyOption> propertyOptions = new ArrayList<>();
@@ -99,4 +97,7 @@ public class Property {
 
     @OneToOne(mappedBy = "property")
     private PropertyTransaction propertyTransaction;
+
+    @OneToOne(mappedBy = "property")
+    private BuildingInfo buildingInfo;
 }

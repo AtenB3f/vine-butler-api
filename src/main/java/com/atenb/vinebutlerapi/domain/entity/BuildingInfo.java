@@ -21,7 +21,7 @@ public class BuildingInfo {
 
     // Property와 BuildingInfo는 1:1 관계
     @OneToOne
-    @JoinColumn(name = "property_id", unique = true)
+    @JoinColumn(name = "property_id", nullable = false, unique = true)
     private Property property;
 
     // 국가 표준 건물 종류

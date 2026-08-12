@@ -23,15 +23,15 @@ public class Address {
     private Long id;
 
     // 시/도
-    @Column(length = 50)
+    @Column(name = "si_do", length = 50)
     private String sidoName;
 
     // 시/군/구
-    @Column(length = 50)
+    @Column(name = "si_gun_gu", length = 50)
     private String sigunguName;
 
     // 읍/면/동
-    @Column(length = 50)
+    @Column(name = "eup_myeon_dong", length = 50)
     private String eupMyeonDongName;
 
     // 지번주소
@@ -51,7 +51,7 @@ public class Address {
     private BigDecimal latitude;
 
     // 경도
-    @Column(precision = 10, scale = 8)
+    @Column(precision = 11, scale = 8)
     private BigDecimal longitude;
 
     @CreationTimestamp
