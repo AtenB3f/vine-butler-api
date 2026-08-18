@@ -47,10 +47,6 @@ public class PropertyTransaction {
     @Column(precision = 10, scale = 2)
     private BigDecimal maintenanceCost;
 
-    // 이사일
-    @Column
-    private LocalDate moveInDate;
-
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "property_options", uniqueConstraints = {
-        @UniqueConstraint(columnNames = { "property_id", "option_id"})
+        @UniqueConstraint(columnNames = { "property_id", "furniture_id"})
 })
 @Data
 @NoArgsConstructor
@@ -25,7 +25,7 @@ public class PropertyOption {
     private Property property;
 
     @ManyToOne
-    @JoinColumn(name = "option_id", nullable = false)
+    @JoinColumn(name = "furniture_id", nullable = false)
     private FurnitureOption furnitureOption;
 
     @CreationTimestamp

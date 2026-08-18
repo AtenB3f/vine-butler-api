@@ -28,6 +28,9 @@ public class Agent {
     @Column(length = 20)
     private String phone;
 
+    @Column(length = 255)
+    private String companyName;
+
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;

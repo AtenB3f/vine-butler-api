@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +61,9 @@ public class Property {
     // 입주일 협의 가능 여부
     @Column(columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean moveInAvailable = false;
+
+    @Column
+    private LocalDate moveInDate;
 
     // 주차 가능 여부
     @Column(columnDefinition = "BOOLEAN DEFAULT FALSE")

@@ -78,10 +78,6 @@ public class PropertyTransactionServiceImpl implements PropertyTransactionServic
             existedTransaction.setMonthlyRent(propertyTransaction.getMonthlyRent());
         }
 
-        if (propertyTransaction.getMoveInDate() != null) {
-            existedTransaction.setMoveInDate(propertyTransaction.getMoveInDate());
-        }
-
         return propertyTransactionRepository.save(existedTransaction);
     }
 
